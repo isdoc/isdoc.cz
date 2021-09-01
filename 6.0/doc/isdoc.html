@@ -1,0 +1,1466 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>ISDOC 6.0.1</title><style type="text/css">
+
+/********************************/
+/* start of styles in block.xsl */
+
+.formalpara-title {
+  font-weight: bold;
+}
+
+div.blockquote-title {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msgmain-title {
+  font-weight: bold;
+}
+
+span.msgsub-title {
+  font-weight: bold;
+}
+
+span.msgrel-title {
+  font-weight: bold;
+}
+
+div.msglevel, div.msgorig, div.msgaud {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msglevel-title, span.msgorig-title, span.msgaud-title {
+  font-weight: bold;
+}
+
+div.msgexplan {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msgexplan-title {
+  font-weight: bold;
+}
+
+/* end of styles in block.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in autotoc.xsl */
+
+
+/* end of styles in autotoc.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in formal.xsl */
+
+div.figure-title {
+  font-weight: bold;
+}
+
+div.example-title {
+  font-weight: bold;
+}
+
+div.equation-title {
+  font-weight: bold;
+}
+
+div.table-title {
+  font-weight: bold;
+}
+
+div.sidebar-title {
+  font-weight: bold;
+}
+
+
+/* end of styles in formal.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in verbatim.xsl */
+
+div.programlisting {
+  white-space: pre;
+  font-family: monospace;
+}
+
+div.screen {
+  white-space: pre;
+  font-family: monospace;
+}
+
+div.synopsis {
+  white-space: pre;
+  font-family: monospace;
+}
+
+/* end of styles in verbatim.xsl */
+/********************************/
+
+/* footnote rule */
+hr.footnote-hr {
+  width: 100;
+}
+
+</style><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+      <meta charset="utf-8" /><style type="text/css">
+    .screen, .programlisting, .literallayout { background-color: #F0F0F0; }
+    body { font-family: Verdana, sans-serif; 
+           background-attachment: fixed; 
+           background-position: center center; 
+	   max-width: 50em;
+	   margin-left: auto;
+	   margin-right: auto; }
+    .article > .titlepage { text-align: center; background-color: #f8b439; padding-top: 0.5em; }
+    .title { color: navy;  }
+    .section .titlepage, .bibliography .titlepage { text-align: left; }
+    .remark { color: red;
+              background-color: yellow;
+	      font-style: italics;
+	    }
+     :link { color: red; text-decoration: none; }
+     :visited { color: red; text-decoration: none; }
+     a:hover { text-decoration: underline; }
+    </style></head>
+   <body>
+      <section xml:lang="cs" class="article" id="d5e1">
+         <div class="titlepage">
+            <div>
+               <div>
+                  <h1 class="title">ISDOC 6.0.1</h1>
+               </div>
+               <div>
+                  <h3 class="subtitle"><em>Národní standard pro elektronickou fakturaci</em></h3>
+               </div>
+               <div>
+                  <p class="copyright">Copyright © 2014 ICT UNIE o.s.</p>
+               </div>
+               <div>
+                  <p class="pubdate">26. května 2014</p>
+               </div>
+            </div>
+            <hr />
+         </div>
+         <div class="toc">
+            <ul class="toc">
+               <li><span class="section"><a href="#uvod">1. Úvod</a></span><ul>
+                     <li><span class="section"><a href="#konvence">1.1. Konvence</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="section"><a href="#shoda">2. Shoda se standardem</a></span><ul>
+                     <li><span class="section"><a href="#typy-dokumentu">2.1. Typy dokumentů ISDOC</a></span></li>
+                     <li><span class="section"><a href="#shoda-dokument">2.2. Dokument ISDOC</a></span></li>
+                     <li><span class="section"><a href="#shoda-konzument">2.3. Konzument ISDOC</a></span></li>
+                     <li><span class="section"><a href="#shoda-producent">2.4. Producent ISDOC</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="section"><a href="#reprezentace">3. Reprezentace dokumentu</a></span><ul>
+                     <li><span class="section"><a href="#reprezentace-xml">3.1. Dokument XML</a></span></li>
+                     <li><span class="section"><a href="#archiv">3.2. Archiv</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="section"><a href="#pravidla">4. Pravidla</a></span><ul>
+                     <li><span class="section"><a href="#pravidla-invoice">4.1. Pravidla pro typ dokumentu daňový doklad</a></span></li>
+                     <li><span class="section"><a href="#pravidla-commondocument">4.2. Pravidla pro typ dokumentu neplatební dokument</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="section"><a href="#podpis">5. Digitální podpisy</a></span><ul>
+                     <li><span class="section"><a href="#podpis-pozadavky">5.1. Požadavky na digitální podpis v dokumentu ISDOC</a></span></li>
+                     <li><span class="section"><a href="#podpis-vicenasobny-pozadavky">5.2. Požadavky na vícenásobný podpis dokumentu ISDOC</a></span></li>
+                     <li><span class="section"><a href="#podpis-vicenasobny-stare-dokumenty">5.3. Ověření vícenásobného podpisu ve starších verzích formátu</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="section"><a href="#razitko">6. Časové razítko</a></span><ul>
+                     <li><span class="section"><a href="#razitko-pozadavky">6.1. Požadavky na časové razítko v dokumentu ISDOC</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="appendix"><a href="#schema">A. Schémata pro jednotlivé typy dokumentů</a></span><ul>
+                     <li><span class="section"><a href="#schema-invoice">A.1. Schéma pro daňový doklad – <code class="filename"><a class="filename" href="../xsd/isdoc-invoice-6.0.1.xsd" target="_top">isdoc-invoice-6.0.1.xsd</a></code></a></span></li>
+                     <li><span class="section"><a href="#schema-commondocument">A.2. Schéma pro neplatební dokument – <code class="filename"><a class="filename" href="../xsd/isdoc-commondocument-6.0.1.xsd" target="_top">isdoc-commondocument-6.0.1.xsd</a></code></a></span></li>
+                     <li><span class="section"><a href="#schema-manifest">A.3. Schéma pro manifest – <code class="filename"><a class="filename" href="../xsd/isdoc-manifest-6.0.1.xsd" target="_top">isdoc-manifest-6.0.1.xsd</a></code></a></span></li>
+                  </ul>
+               </li>
+               <li><span class="appendix"><a href="#schematron">B. Schéma pro kontrolu vybraných pravidel – <code class="filename"><a class="filename" href="../sch/isdoc-6.0.1.sch" target="_top">isdoc-6.0.1.sch</a></code></a></span></li>
+               <li><span class="appendix"><a href="#chagelog">C. Změny oproti předchozím verzím</a></span><ul>
+                     <li><span class="section"><a href="#d5e513">C.1. Změny oproti verzi 5.3.1 z 30.12.2011</a></span></li>
+                  </ul>
+               </li>
+               <li><span class="appendix"><a href="#d5e572">D. Možné změny pro další verze</a></span></li>
+               <li><span class="bibliography"><a href="#d5e580">Reference</a></span></li>
+            </ul>
+         </div>
+         <section class="section" id="uvod">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">1. Úvod</h2>
+                  </div>
+               </div>
+            </div>
+            <p>Tento dokument definuje formáty pro elektronickou fakturaci souhrně označované zkratkou
+               ISDOC. Formát byl definován a je nadále rozvíjen pracovní skupinou pro elektronické standardy
+               výměny dat <a class="link" href="http://www.ictu.cz/" target="_top">ICT Unie o.s.</a>. Veškeré připomínky a
+               dotazy k formátu a jeho specifikaci zasílejte na adresu <code class="email"><a class="email" href="mailto:info@isdoc.cz">info@isdoc.cz</a></code>.
+            </p>
+            <p>V současné verzi ISDOC definuje formát pro fakturu<span class="phrase"> a </span>neplatební dokument, v dalších verzích může
+               být přidána podpora pro další formáty.
+            </p>
+            <section class="section" id="konvence">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">1.1. Konvence</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Pokud se v textu nebo v příkladech objevují prefixy jmenných prostorů, platí pro ně
+                  následující mapování na jmenný prostor.
+               </p>
+               <div class="informaltable">
+                  <table style="border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; ">
+                     <colgroup>
+                        <col class="c1" />
+                        <col class="c2" />
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th style="border-right: 1px solid ; border-bottom: 1px solid ; ">Prefix</th>
+                           <th style="border-bottom: 1px solid ; ">Jmenný prostor</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="code">isdoc</code></td>
+                           <td style="border-bottom: 1px solid ; "><code class="uri">http://isdoc.cz/namespace/2013</code></td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="code">manifest</code></td>
+                           <td style="border-bottom: 1px solid ; "><code class="uri">http://isdoc.cz/namespace/2013/manifest</code></td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="code">dsig</code></td>
+                           <td style="border-bottom: 1px solid ; "><code class="uri">http://www.w3.org/2000/09/xmldsig#</code></td>
+                        </tr>
+                        <tr>
+                           <td style="border-right: 1px solid ; "><code class="code">xades</code></td>
+                           <td><code class="uri">http://uri.etsi.org/01903/v1.3.2#</code></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+         </section>
+         <section class="section" id="shoda">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">2. Shoda se standardem</h2>
+                  </div>
+               </div>
+            </div>
+            <p>Standard ISDOC definuje shodu pro dokumenty, konzumenty a producenty.</p>
+            <section class="section" id="typy-dokumentu">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.1. Typy dokumentů ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Standard ISDOC definuje následující typy dokumentů:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" style="list-style-type: disc; ">
+                     <li class="listitem">
+                        <p>daňový doklad – souhrně označuje fakturu, opravný daňový doklad (dobropis), opravný
+                           daňový doklad (vrubopis), zálohovou fakturu (nedaňový zálohový list), daňový doklad při
+                           přijetí platby (daňový zálohový list), opravný daňový doklad při přijetí platby
+                           (dobropis daňového zálohového listu)a zjednodušený daňový doklad;
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>neplatební dokument.</p>
+                     </li>
+                  </ul>
+               </div>
+            </section>
+            <section class="section" id="shoda-dokument">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.2. Dokument ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Dokument ISDOC musí splňovat následující požadavky:</p>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Musí být reprezentován v souladu s požadavky definovanými v části <a class="xref" href="#reprezentace" title="3. Reprezentace dokumentu">3 – „Reprezentace dokumentu“</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Musí být jedním z typů dokumentů definovaných v tomto standardu:</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" style="list-style-type: disc; ">
+                              <li class="listitem">
+                                 <p>Pokud se jedná o daňový doklad, musí být validní vůči schématu uvedenému v části
+                                    <a class="xref" href="#schema-invoice" title="A.1. Schéma pro daňový doklad – isdoc-invoice-6.0.1.xsd">A.1 – „Schéma pro daňový doklad – <code class="filename"></code></a><a class="filename" href="../xsd/isdoc-invoice-6.0.1.xsd" target="_top">isdoc-invoice-6.0.1.xsd</a><a class="xref" href="#schema-invoice" title="A.1. Schéma pro daňový doklad – isdoc-invoice-6.0.1.xsd"><code class="filename"></code>“</a> a jako kořenový element musí být použit element
+                                    <code class="sgmltag-element">Invoice</code>.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Pokud se jedná o neplatební dokument, musí být validní vůči schématu uvedenému v části
+                                    <a class="xref" href="#schema-commondocument" title="A.2. Schéma pro neplatební dokument – isdoc-commondocument-6.0.1.xsd">A.2 – „Schéma pro neplatební dokument – <code class="filename"></code></a><a class="filename" href="../xsd/isdoc-commondocument-6.0.1.xsd" target="_top">isdoc-commondocument-6.0.1.xsd</a><a class="xref" href="#schema-commondocument" title="A.2. Schéma pro neplatební dokument – isdoc-commondocument-6.0.1.xsd"><code class="filename"></code>“</a> a jako kořenový element musí být použit element
+                                    <code class="sgmltag-element">CommonDocument</code>.
+                                 </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li class="listitem">
+                        <p>Musí splňovat pravidla definovaná v části <a class="xref" href="#pravidla" title="4. Pravidla">4 – „Pravidla“</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Pokud je dokument opatřen digitálním podpisem, musí splňovat požadavky definované v části <a class="xref" href="#podpis" title="5. Digitální podpisy">5 – „Digitální podpisy“</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Pokud je dokument opatřen časovým razítkem, musí splňovat požadavky definované v části <a class="xref" href="#razitko" title="6. Časové razítko">6 – „Časové razítko“</a>.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+            </section>
+            <section class="section" id="shoda-konzument">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.3. Konzument ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Konzument ISDOC je program, který načítá a zpracovává dokument ISDOC v souladu se
+                  sémantikou definovanou v tomto standardu. Konzument musí být schopen načíst a zpracovat
+                  alespoň jeden typ dokumentů ISDOC.
+               </p>
+               <p>Konzument ISDOC musí být opatřen dokumentací, která vyjmenovává jaké typy dokumentů
+                  ISDOC a jaké verze standardu ISDOC jsou podporovány.
+               </p>
+            </section>
+            <section class="section" id="shoda-producent">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.4. Producent ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Producent ISDOC je program, který generuje dokument ISDOC v souladu se sémantikou
+                  definovanou v tomto standardu. Producent musí být schopen generovat alespoň jeden typ
+                  dokumentů ISDOC.
+               </p>
+               <p>Producent ISDOC musí být opatřen dokumentací, která vyjmenovává jaké typy dokumentů
+                  ISDOC a jaké verze standardu ISDOC jsou podporovány.
+               </p>
+            </section>
+         </section>
+         <section class="section" id="reprezentace">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">3. Reprezentace dokumentu</h2>
+                  </div>
+               </div>
+            </div>
+            <p>Dokument ISDOC musí být reprezentován jako samostatný dokument XML nebo jako archiv. Pro
+               samostatné dokumenty je doporučeno používat příponu <code class="filename">.isdoc</code> a pro archivy
+               <code class="filename">.isdocx</code>.
+            </p>
+            <div class="note">
+               <h3 class="title">Poznámka</h3>
+               <p>Samostatný dokument je preferovaná forma pro výměnu dokumentů ISDOC. Je vhodná například
+                  při komunikace pomocí webových služeb či pro zasílání dokumentů pomocí elektronické pošty
+                  nebo datových schránek. Reprezentace pomocí archivu je vhodná v případech, kdy chceme kromě
+                  samotného dokladu přenášet i další související přílohy jako jeden celek.
+               </p>
+            </div>
+            <section class="section" id="reprezentace-xml">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">3.1. Dokument XML</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>ISDOC musí být well-formed dokument XML tak jak definuje specifikace <a class="xref" href="#bib.xml" title="Extensible Markup Language (XML) 1.0 (Fifth Edition).">[<abbr class="abbrev">XML</abbr>]</a> a musí být uložen v kódování UTF-8.
+               </p>
+            </section>
+            <section class="section" id="archiv">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">3.2. Archiv</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Archiv obsahující dokument ISDOC musí používat formát ZIP tak jak jej definuje
+                  specifikace <a class="xref" href="#bib.appnote" title="APPNOTE.TXT – .ZIP File Format Specification.">[<abbr class="abbrev">APPNOTE</abbr>]</a> a navíc musí dodržet všechny následující
+                  požadavky:
+               </p>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Soubory uložené v archivu musí být nekomprimované nebo musí používat kompresní
+                           metodu <span class="quote">„<span class="quote">deflate</span>“</span> popsanou v <a class="xref" href="#bib.rfc1951" title="DEFLATE Compressed Data Format Specification version 1.3">[<abbr class="abbrev">RFC1951</abbr>]</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Archiv nesmí používat šifrování.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Archiv nesmí používat digitální podpisy.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Archiv nesmí používat funkci <span class="quote">„<span class="quote">patch data</span>“</span>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Archiv nesmí být rozdělen do více souborů.</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Jména souborů musí být uložena v kódování UTF-8 a musí být nastaven příznak
+                           <span class="quote">„<span class="quote">Language encoding flag</span>“</span> (bit 11).
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Archiv musí v kořenovém adresáři obsahovat soubor <code class="filename">manifest.xml</code>
+                           obsahující manifest.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+               <section class="section" id="manifest">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">3.2.1. Manifest</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Manifest je jednoduchý dokument XML, který slouží k snadnému a rychlému nalezení
+                     dokumentu ISDOC v archivu. Elementy uvnitř manifestu musí být ve jmenném prostoru
+                     <code class="uri">http://isdoc.cz/namespace/2013/manifest</code>. Manifest musí obsahovat kořenový
+                     element <code class="sgmltag-element">manifest</code> a ten musí obsahovat právě jeden element
+                     <code class="sgmltag-element">maindocument</code>, který v atributu <code class="sgmltag-attribute">filename</code> určuje
+                     umístění dokumentu ISDOC uvnitř archivu.
+                  </p>
+                  <div class="example" id="d5e137">
+                     <div class="example-title">Příklad 1. Manifest archivu – soubor <code class="filename">manifest.xml</code></div>
+                     <div class="example-contents"><pre class="programlisting">&lt;?xml version="1.0"?&gt;
+&lt;manifest xmlns="http://isdoc.cz/namespace/2013/manifest"&gt;
+  &lt;maindocument filename="FV2013-042.isdoc"/&gt;
+&lt;/manifest&gt;</pre></div>
+                  </div><br class="example-break" /><div class="note">
+                     <h3 class="title">Poznámka</h3>
+                     <p>Starší verze formátu ISDOC nepodporovaly manifest (do verze 5.x včetně). Pro
+                        zajištění zpětné kompatibility je doporučeno, aby aplikace v případě chybějícího
+                        manifestu za hlavní dokument ISDOC v archivu považovala soubor v hlavním adresářu
+                        archivu, který má příponu <code class="filename">.isdoc</code>.
+                     </p>
+                  </div>
+               </section>
+            </section>
+         </section>
+         <section class="section" id="pravidla">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">4. Pravidla</h2>
+                  </div>
+               </div>
+            </div>
+            <p>Jednotlivé typy dokumentů ISDOC musí splňovat následující pravidla. Některá z následujících pravidel lze 
+               kontrolovat strojově pomocí schématu v jazyce Schematron. Odpovídající schéma je v příloze <a class="xref" href="#schematron" title="B. Schéma pro kontrolu vybraných pravidel – isdoc-6.0.1.sch">B – „<em>Schéma pro kontrolu vybraných pravidel – <code class="filename"></code></em></a><a class="filename" href="../sch/isdoc-6.0.1.sch" target="_top">isdoc-6.0.1.sch</a><a class="xref" href="#schematron" title="B. Schéma pro kontrolu vybraných pravidel – isdoc-6.0.1.sch"><em><code class="filename"></code></em>“</a>. 
+               
+            </p>
+            <section class="section" id="pravidla-invoice">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">4.1. Pravidla pro typ dokumentu daňový doklad</h3>
+                     </div>
+                  </div>
+               </div>
+               <section class="section" id="invoice-rule-1">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.1.1. Vazba na původní doklad</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Pro typ dokladu 2, 3 a 6 musí existovat vazba na původní doklad. Konkrétně tedy pro <code class="sgmltag-element">DocumentType</code> = 2, 3, 6 musí existovat element <code class="sgmltag-element">OriginalDocumentReference</code> a musí byt neprázdný.
+                  </p>
+               </section>
+               <section class="section" id="invoice-rule-2">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.1.2. Konzistentní uvádění cizí měny</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element <code class="sgmltag-element">ForeignCurrencyCode</code>, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na <code class="code">Curr</code>.
+                  </p>
+               </section>
+               <section class="section" id="invoice-rule-3">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.1.3. Konzistentní uvádění tuzemské měny</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element <code class="sgmltag-element">ForeignCurrencyCode</code>, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na <code class="code">Curr</code>. Položky s kursem (<code class="sgmltag-element">CurrRate</code> i <code class="sgmltag-element">RefCurrRate</code>) musí být rovny hodnotě 1.
+                  </p>
+               </section>
+               <section class="section" id="invoice-rule-4">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.1.4. Tuzemská a zahraniční měna musí být rozdílná</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>U dokladu v zahraniční měně nesmí být měna lokální a zahraniční shodné. Konkrétně hodnota povinné položky <code class="sgmltag-element">LocalCurrencyCode</code> se nesmí rovnat hodnotě nepovinné položky <code class="sgmltag-element">ForeignCurrencyCode</code>.
+                  </p>
+               </section>
+               <section class="section" id="invoice-rule-sdt-origin">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.1.5. Správce číselníku podrobnějšího typu dokumentu</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Element <code class="sgmltag-element">SubDocumentTypeOrigin</code> musí obsahovat pouze hodnoty uvedené v tabulce <a class="xref" href="#tab.std-origin" title="Tabulka 1. Přípustné hodnoty pro element SubDocumentTypeOrigin">1 – „Přípustné hodnoty pro element <code class="sgmltag-element">SubDocumentTypeOrigin</code>“</a>.
+                  </p>
+                  <div class="table" id="tab.std-origin">
+                     <div class="table-title">Tabulka 1. Přípustné hodnoty pro element <code class="sgmltag-element">SubDocumentTypeOrigin</code></div>
+                     <div class="table-contents">
+                        <table style="border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; ">
+                           <colgroup>
+                              <col />
+                              <col />
+                              <col />
+                              <col />
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <th style="border-right: 1px solid ; border-bottom: 1px solid ; ">Hodnota</th>
+                                 <th style="border-right: 1px solid ; border-bottom: 1px solid ; ">Popis</th>
+                                 <th style="border-right: 1px solid ; border-bottom: 1px solid ; ">Definice číselníku</th>
+                                 <th style="border-bottom: 1px solid ; ">Přidáno</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td style="border-right: 1px solid ; "><code class="code">CBA</code></td>
+                                 <td style="border-right: 1px solid ; ">Česká bankovní asociace</td>
+                                 <td style="border-right: 1px solid ; ">viz <a class="xref" href="#bib.cba29" title="Standard elektronické fakturace – Popis rozhraní pro zasílání e-faktur a e-dokumentů koncovým spotřebitelům do aplikací elektronického bankovnictví">[<abbr class="abbrev">ČBA-STD-29</abbr>]</a></td>
+                                 <td>1. ledna 2014</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div><br class="table-break" /></section>
+            </section>
+            <section class="section" id="pravidla-commondocument">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">4.2. Pravidla pro typ dokumentu neplatební dokument</h3>
+                     </div>
+                  </div>
+               </div>
+               <section class="section" id="commondocument-rule-sdt-origin">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">4.2.1. Správce číselníku podrobnějšího typu dokumentu</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Element <code class="sgmltag-element">SubDocumentTypeOrigin</code> musí obsahovat pouze hodnoty uvedené v tabulce <a class="xref" href="#tab.std-origin" title="Tabulka 1. Přípustné hodnoty pro element SubDocumentTypeOrigin">1 – „Přípustné hodnoty pro element <code class="sgmltag-element">SubDocumentTypeOrigin</code>“</a>.
+                  </p>
+               </section>
+            </section>
+         </section>
+         <section class="section" id="podpis">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">5. Digitální podpisy</h2>
+                  </div>
+               </div>
+            </div>
+            <section class="section" id="podpis-pozadavky">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">5.1. Požadavky na digitální podpis v dokumentu ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Digitální podpis musí být v souladu s doporučením <a class="xref" href="#bib.xmldsig-core" title="XML Signature Syntax and Processing (Second Edition).">[<abbr class="abbrev">XMLDSig-Core</abbr>]</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Digitální podpis musí používat transformaci <a class="link" href="http://www.w3.org/TR/xmldsig-core/#sec-EnvelopedSignature" target="_top">Enveloped
+                              Signature</a> a být uložen v elementu <code class="sgmltag-element">Signature</code> ze jmenného prostoru
+                           <code class="uri">http://www.w3.org/2000/09/xmldsig#</code>, který je vždy posledním elementem
+                           uvnitř kořenového elementu dokument ISDOC.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Je doporučeno, aby kromě transformace <a class="link" href="http://www.w3.org/TR/xmldsig-core/#sec-EnvelopedSignature" target="_top">Enveloped
+                              Signature</a> byla použita i transformace <a class="link" href="http://www.w3.org/TR/xmldsig-core/#sec-XPath" target="_top">XPath</a>, která umožní
+                           pozdější přidání dalších podpisů tím, že podpisy samotné se vynechají z podepisování
+                           pomocí XPath filtru <code class="code">not(ancestor-or-self::dsig:Signature)</code>.
+                        </p>
+                        <div class="example" id="d5e298">
+                           <div class="example-title">Příklad 2. Použití transformace XPath v digitálním podpisu</div>
+                           <div class="example-contents"><pre class="programlisting">&lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"
+           <span class="bold"><strong>xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"</strong></span>
+           Id="Signature-1"&gt;
+  &lt;SignedInfo&gt;
+    &lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/&gt;
+    &lt;SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/&gt;
+    &lt;Reference URI=""&gt;
+<span class="bold"><strong>      &lt;Transforms&gt;
+        &lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+        &lt;Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"&gt;
+          &lt;XPath&gt;not(ancestor-or-self::dsig:Signature)&lt;/XPath&gt;
+         &lt;/Transform&gt;
+      &lt;/Transforms&gt;</strong></span>
+      &lt;DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/&gt;
+      &lt;DigestValue&gt;GRhVFHn8P5AoMcL0y1RJ4ICVRQZKdW+hcxo3gz8gvCc=&lt;/DigestValue&gt;
+    &lt;/Reference&gt;
+  &lt;/SignedInfo&gt;
+  &lt;SignatureValue&gt;...&lt;/SignatureValue&gt;
+  &lt;KeyInfo&gt;
+    &lt;X509Data&gt;
+      &lt;X509Certificate&gt;...&lt;/X509Certificate&gt;
+    &lt;/X509Data&gt;
+  &lt;/KeyInfo&gt;
+&lt;/Signature&gt;</pre></div>
+                        </div><br class="example-break" /></li>
+                     <li class="listitem">
+                        <p>Je doporučeno, aby každý připojený digitální podpis obsahoval unikátní identifikátor
+                           uvnitř atributu <code class="sgmltag-attribute">Id</code>. Hodnota identifikátoru musí odpovídat
+                           produkčnímu pravidlu <code class="literal"><a class="literal" href="http://www.w3.org/TR/REC-xml/#NT-Name" target="_top">Name</a></code> tak, jak jej definuje specifikace <a class="xref" href="#bib.xml" title="Extensible Markup Language (XML) 1.0 (Fifth Edition).">[<abbr class="abbrev">XML</abbr>]</a>.<a href="#ftn.d5e308" class="footnote"><sup class="footnote" id="d5e308">[1]</sup></a></p>
+                        <div class="example" id="d5e310">
+                           <div class="example-title">Příklad 3. Přiřazení unikátního identifikátoru podpisu</div>
+                           <div class="example-contents"><pre class="programlisting">&lt;Signature xmlns="http://www.w3.org/2000/09/xmldsig#"
+           xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"
+           <span class="bold"><strong>Id="Signature-1"</strong></span>&gt;
+  ...
+&lt;/Signature&gt;</pre></div>
+                        </div><br class="example-break" /></li>
+                     <li class="listitem">
+                        <p>Jako algoritmus pro výpočet otisku dokumentu se musí používat algoritmus z rodiny
+                           SHA-2. Algoritmus musí být identifikován v souladu s <a class="xref" href="#bib.rfc4051" title="Additional XML Security Uniform Resource Identifiers (URIs).">[<abbr class="abbrev">RFC4051</abbr>]</a>.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+            </section>
+            <section class="section" id="podpis-vicenasobny-pozadavky">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">5.2. Požadavky na vícenásobný podpis dokumentu ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Podpis musí být v souladu s požadavky definovanými v <a class="xref" href="#podpis-pozadavky" title="5.1. Požadavky na digitální podpis v dokumentu ISDOC">5.1 – „Požadavky na digitální podpis v dokumentu ISDOC“</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Musí být použita transformace <a class="link" href="http://www.w3.org/TR/xmldsig-core/#sec-XPath" target="_top">XPath</a> a to
+                           následujícím způsobem:
+                        </p>
+                        <div class="orderedlist">
+                           <ol class="orderedlist" type="a">
+                              <li class="listitem">
+                                 <p>První podpis používá filtr
+                                    <code class="code">not(ancestor-or-self::dsig:Signature)</code>.
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Další podpisy používají filtr <code class="code">not(ancestor-or-self::dsig:Signature) or
+                                       not(ancestor-or-self::dsig:Signature/preceding-sibling::dsig:Signature[<em class="replaceable">N</em>-1])</code>,
+                                    kde <em class="replaceable">N</em> je pořadí přidávaného podpisu (číslované od
+                                    jedna).
+                                 </p>
+                              </li>
+                           </ol>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </section>
+            <section class="section" id="podpis-vicenasobny-stare-dokumenty">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">5.3. Ověření vícenásobného podpisu ve starších verzích formátu</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Do verze ISDOC 5.3.x mohly aplikace produkovat vícenásobné <span class="quote">„<span class="quote">enveloped</span>“</span> podpisy bez použití transformace
+                  XPath. Selže-li jejich ověření standardním postupem, postupuje se následovně:
+               </p>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Pokud dokument obsahuje alespoň jeden digitální podpis, ověří se poslední digitální
+                           podpis.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Poslední digitální podpis (element <code class="sgmltag-element">Signature</code>) se z dokumentu odstraní a s takto upraveným dokumentem se opakuje krok 1.
+                        </p>
+                     </li>
+                  </ol>
+               </div>
+            </section>
+         </section>
+         <section class="section" id="razitko">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">6. Časové razítko</h2>
+                  </div>
+               </div>
+            </div>
+            <section class="section" id="razitko-pozadavky">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">6.1. Požadavky na časové razítko v dokumentu ISDOC</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="orderedlist">
+                  <ol class="orderedlist" type="1">
+                     <li class="listitem">
+                        <p>Dokument ISDOC musí obsahovat digitální podpis v souladu s <a class="xref" href="#podpis-pozadavky" title="5.1. Požadavky na digitální podpis v dokumentu ISDOC">5.1 – „Požadavky na digitální podpis v dokumentu ISDOC“</a> a rozhodnutím komise <a class="xref" href="#bib.2011-130-eu" title="COMMISSION DECISION of 25 February 2011 establishing minimum requirements for the cross-border processing of documents signed electronically by competent authorities under Directive 2006/123/EC of the European Parliament and of the Council on services in the internal market">[<abbr class="abbrev">2011/130/EU</abbr>]</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Digitální podpis, který je předmětem časového razítka, musí obsahovat unikátní
+                           identifikátor uvnitř atributu <code class="sgmltag-attribute">Id</code> elementu
+                           <code class="sgmltag-element">Signature</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Časové razítko musí být ve formě XAdES-T v souladu se specifikací <a class="xref" href="#bib.xades" title="ETSI TS 101 903 V1.4.1: XML Advanced Electronic Signatures (XAdES)">[<abbr class="abbrev">XAdES</abbr>]</a>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Digitální podpis, který je předmětem časového razítka, musí obsahovat podpisový
+                           certifikát uvnitř elementu <code class="sgmltag-element">KeyInfo</code> (viz sekce 4.4.1 <a class="xref" href="#bib.xades" title="ETSI TS 101 903 V1.4.1: XML Advanced Electronic Signatures (XAdES)">[<abbr class="abbrev">XAdES</abbr>]</a>) a otisk podpisového certifikátu musí být součástí podepisovaných dat.<a href="#ftn.d5e365" class="footnote"><sup class="footnote" id="d5e365">[2]</sup></a></p>
+                     </li>
+                     <li class="listitem">
+                        <p>Autoritě časového razítka se posílá otisk hodnoty digitálního podpisu z elementu
+                           <code class="sgmltag-element">SignatureValue</code>.<a href="#ftn.d5e370" class="footnote"><sup class="footnote" id="d5e370">[3]</sup></a> Pro výpočet otisku musí být použit algoritmus z rodiny SHA-2.<a href="#ftn.d5e372" class="footnote"><sup class="footnote" id="d5e372">[4]</sup></a></p>
+                     </li>
+                     <li class="listitem">
+                        <p>Časové razítko obdržené od autority časového razítka musí být uloženo v elementu
+                           <code class="sgmltag-element">EncapsulatedTimeStamp</code> ve formátu ASN.1 zakódaném v DER a následně pomocí
+                           base64. Časové razítko musí vyhovovat formátu definovanému produkčním pravidlem
+                           <code class="literal">TimeStampResp</code> dle <a class="xref" href="#bib.rfc3161" title="Internet X.509 Public Key Infrastructure Time-Stamp Protocol (TSP)">[<abbr class="abbrev">RFC3161</abbr>]</a>. Časové razítko musí
+                           vždy obsahovat položku <code class="literal">timeStampToken</code>.<a href="#ftn.d5e380" class="footnote"><sup class="footnote" id="d5e380">[5]</sup></a></p>
+                     </li>
+                  </ol>
+               </div>
+               <div class="example" id="d5e385">
+                  <div class="example-title">Příklad 4. ISDOC s digitálnímy podpisy výstavce, příjemce a časovým razítkem</div>
+                  <div class="example-contents"><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Invoice xmlns="http://isdoc.cz/namespace/2013" version="5.2.2"&gt;
+  &lt;DocumentType&gt;1&lt;/DocumentType&gt;
+  <span class="italic">... samotný obsah faktury ve formátu ISDOC ...</span>
+  &lt;Signature<span id="dsig-vystavce"></span>❶ xmlns="http://www.w3.org/2000/09/xmldsig#"
+             xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"&gt;
+    &lt;SignedInfo&gt;
+      &lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/&gt;
+      &lt;SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/&gt;
+      &lt;Reference URI=""&gt;
+        &lt;Transforms&gt;
+          &lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+          &lt;Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"&gt;
+            &lt;XPath&gt;not(ancestor-or-self::dsig:Signature)&lt;/XPath&gt;
+           &lt;/Transform&gt;
+        &lt;/Transforms&gt;
+        &lt;DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/&gt;
+        &lt;DigestValue&gt;GRhVFHn8P5AoMcL0y1RJ4ICVRQZKdW+hcxo3gz8gvCc=&lt;/DigestValue&gt;
+      &lt;/Reference&gt;
+    &lt;/SignedInfo&gt;
+    &lt;SignatureValue&gt;w6sA...
+      <span class="emphasis"><em>samotný digitální podpis zakódovaný pomocí base64</em></span>
+      ...45pg==&lt;/SignatureValue&gt;
+    &lt;KeyInfo&gt;
+      &lt;X509Data&gt;
+        &lt;X509Certificate&gt;MIIE...
+          <span class="emphasis"><em>X.509 v3 certifikát ve formátu ASN.1/DER zakódovaný pomocí base64</em></span>
+          ...RQkP&lt;/X509Certificate&gt;
+      &lt;/X509Data&gt;
+    &lt;/KeyInfo&gt;
+  &lt;/Signature&gt;
+  &lt;Signature<span id="dsig-prijemce"></span>❷ xmlns="http://www.w3.org/2000/09/xmldsig#" Id<span id="dsig-id"></span>❸="Signature-2"
+             xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"&gt;
+    &lt;SignedInfo<span id="dsig-si"></span>❹&gt;
+      &lt;CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/&gt;
+      &lt;SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/&gt;
+      &lt;Reference<span id="dsig-ref1"></span>❺ Id<span id="dsig-ref1-id"></span>❻="Signature-2-Document-Reference" URI=""&gt;
+        &lt;Transforms&gt;
+          &lt;Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+          &lt;Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"&gt;
+            &lt;XPath&gt;not(ancestor-or-self::dsig:Signature) or not(ancestor-or-self::dsig:Signature/preceding-sibling::dsig:Signature[1])&lt;/XPath&gt;
+           &lt;/Transform&gt;
+        &lt;/Transforms&gt;
+        &lt;DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/&gt;
+        &lt;DigestValue&gt;yHcv2564yvtGgJZcG4+1dm/jsmlX0qKGjGWUfu5cGpg=&lt;/DigestValue&gt;
+      &lt;/Reference&gt;
+      &lt;Reference<span id="dsig-ref2"></span>❼ URI<span id="dsig-ref2-uri"></span>❽="#Signature-2-SignedProperties"&gt;
+        &lt;DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/&gt;
+        &lt;DigestValue&gt;iEy8FDlFUlbctpiVrwTf4cuTBKoBBXY5LDJIyuAG2KM=&lt;/DigestValue&gt;
+      &lt;/Reference&gt;
+    &lt;/SignedInfo&gt;
+    &lt;SignatureValue&gt;OcLa...
+      <span class="emphasis"><em>samotný digitální podpis zakódovaný pomocí base64</em></span>
+      ...t+jA==&lt;/SignatureValue&gt;
+    &lt;KeyInfo<span id="dsig-ki"></span>❾&gt;
+      &lt;X509Data&gt;
+        &lt;X509Certificate&gt;MIIE...
+          <span class="emphasis"><em>X.509 v3 certifikát ve formátu ASN.1/DER zakódovaný pomocí base64</em></span>
+          ...I2si0=&lt;/X509Certificate&gt;
+      &lt;/X509Data&gt;
+    &lt;/KeyInfo&gt;
+    &lt;Object<span id="dsig-object"></span>❿&gt;
+      &lt;xades:QualifyingProperties<span id="dsig-xades-qp"></span>⓫ xmlns:xades="http://uri.etsi.org/01903/v1.3.2#"
+                                    Target<span id="dsig-xades-target"></span>⓬="#Signature-2"&gt;        
+        &lt;xades:SignedProperties<span id="dsig-xades-sp"></span>⓭ Id="Signature-2-SignedProperties"&gt;
+          &lt;xades:SignedSignatureProperties&gt;
+            &lt;xades:SigningTime<span id="dsig-xades-st"></span>⓮&gt;2011-08-16T08:25:48.0724613Z&lt;/xades:SigningTime&gt;
+            &lt;xades:SigningCertificate<span id="dsig-xades-sc"></span>⓯&gt;
+              &lt;xades:Cert&gt;
+                &lt;xades:CertDigest&gt;
+                  &lt;DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/&gt;
+                  &lt;DigestValue<span id="dsig-xades-dv"></span>⓰&gt;2w6LNdUhsrbRSWpoZhYKGo5BO1GmVzDuhZ7QOE5NgFg=&lt;/DigestValue&gt;
+                &lt;/xades:CertDigest&gt;
+                &lt;xades:IssuerSerial<span id="dsig-xades-is"></span>⓱&gt;
+                  &lt;X509IssuerName&gt;C=CZ, O="Česká pošta, s.p. [IČ 47114983]", CN=DEMO PostSignum
+                    Qualified CA 2&lt;/X509IssuerName&gt;
+                  &lt;X509SerialNumber&gt;07B4E9&lt;/X509SerialNumber&gt;
+                &lt;/xades:IssuerSerial&gt;
+              &lt;/xades:Cert&gt;
+            &lt;/xades:SigningCertificate&gt;
+          &lt;/xades:SignedSignatureProperties&gt;
+          &lt;xades:SignedDataObjectProperties&gt;
+            &lt;xades:DataObjectFormat<span id="dsig-xades-dof"></span>⓲ ObjectReference="#Signature-2-Document-Reference"&gt;
+              &lt;xades:MimeType&gt;application/xml&lt;/xades:MimeType&gt;
+            &lt;/xades:DataObjectFormat&gt;
+          &lt;/xades:SignedDataObjectProperties&gt;
+        &lt;/xades:SignedProperties&gt;
+        &lt;xades:UnsignedProperties&gt;
+          &lt;xades:UnsignedSignatureProperties&gt;
+            &lt;xades:SignatureTimeStamp&gt;
+              &lt;xades:EncapsulatedTimeStamp<span id="dsig-xades-ets"></span>⓳
+                     Encoding="http://uri.etsi.org/01903/v1.2.2#DER"&gt;MIIOB...
+                <span class="emphasis"><em>Časové razítko zakódované v ASN.1/DER a následně base64</em></span>
+                ...qp8=&lt;/xades:EncapsulatedTimeStamp&gt;
+            &lt;/xades:SignatureTimeStamp&gt;
+          &lt;/xades:UnsignedSignatureProperties&gt;
+        &lt;/xades:UnsignedProperties&gt;
+      &lt;/xades:QualifyingProperties&gt;
+    &lt;/Object&gt;
+  &lt;/Signature&gt;
+&lt;/Invoice&gt;</pre><div class="calloutlist">
+                        <table style="border: 0; ">
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-vystavce">❶</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Digitální podpis výstavce dokumentu. Podepsán je původní obsah faktury.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-prijemce">❷</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Digitální podpis příjemce dokumentu. Podepsán je celý předcházející dokument – tedy
+                                                jak původní obsah faktury tak podpis výstavce. Navíc je kvůli požadavkům na shodu
+                                                s XAdES-BES podepsán i podpisový certifikát příjemce (viz <span id="dsig-ref2"></span>❼).
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-id">❸</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Digitální podpis, který chceme opatřit časovým razítkem, musí mít unikátní
+                                                identifikátor. Časové razítko pomocí odkazu na identifikátor indikuje, kterého podpisu
+                                                se týká.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-si">❹</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">SignedInfo</code> obsahuje informace o podepisovaných datech, způsobu
+                                                jejich kanonizace a metodě výpočtu podpisu.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-ref1">❺</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">Reference</code> určuje data pro podepsání. Atribut <code class="code">URI=""</code>
+                                                říká, že se bude podepisovat celý stávající dokument (v našem případě původní faktura a
+                                                podpis výstavce).
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-ref1-id">❻</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">Reference</code> musí mít přiřazen identifikátor, aby se na něj bylo
+                                                možné odkázat z elementu <code class="sgmltag-element">DataObjectFormat</code> (viz <span id="dsig-xades-dof"></span>⓲).
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-ref2">❼</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">Reference</code> určuje data pro podepsání. Atribut
+                                                  <code class="code">URI="#Signature-2-SignedProperties"</code> říká, že se bude podepisovat element,
+                                                který má identifikátor <code class="code">Signature-2-SignedProperties</code>. V našem případě se
+                                                jedná o element <code class="sgmltag-element">SignedProperties</code> obsahující čas podepisování, otisk
+                                                podpisového certifikátu (viz <span id="dsig-xades-sc"></span>⓯) a další informace.
+                                                Zahrnutí těchto údajů do podpisu vyžaduje XAdES-BES.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-ref2-uri">❽</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Odkaz na podepisovaná data, v tomto případě na element <code class="sgmltag-element">SignedProperties</code>
+                                                (viz <span id="dsig-xades-sp"></span>⓭) obsahující zejména otisk podpisového
+                                                certifikátu.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-ki">❾</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">KeyInfo</code> obsahuje podpisový certifikát. XAdES-BES vyžaduje, aby
+                                                  byl tento certifikát přítomen a byl podepsán jeho otisk v elementu
+                                                    <code class="sgmltag-element">SigningCertificate</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-object">❿</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">Object</code> slouží jako kontejner, do kterého je možné přidat
+                                                doplňující informace pro digitální podpis včetně časového razítka XAdES-T.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-qp">⓫</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">QualifyingProperties</code> obaluje všechny informace XAdES.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-target">⓬</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Atribut <code class="sgmltag-attribute">Target</code> obsahuje odkaz na digitální podpis,
+                                                kterého se týká časové razítko.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-sp">⓭</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">SignedProperties</code> obaluje veškeré přídavné vlastnosti, které se
+                                                podepisují. Zejména otisk podpisového certifikátu.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-st">⓮</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Čas UTC podepisování dokumentu. Čas musí vyhovovat datovému typu
+                                                  <code class="code">dateTime</code> W3C XML schémat.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-sc">⓯</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Informace o podpisovém certifikátu. Element <code class="sgmltag-element">SigningCertificate</code> nesmí
+                                                obsahovat atribut <code class="sgmltag-attribute">Id</code> (viz <a class="xref" href="#bib.2011-130-eu" title="COMMISSION DECISION of 25 February 2011 establishing minimum requirements for the cross-border processing of documents signed electronically by competent authorities under Directive 2006/123/EC of the European Parliament and of the Council on services in the internal market">[<abbr class="abbrev">2011/130/EU</abbr>]</a>) – odpovídající certifikát v elementu <code class="sgmltag-element">KeyInfo</code> (viz <span id="dsig-ki"></span>❾) je nalezen na základě shody otisku certifikátu (viz <span id="dsig-xades-dv"></span>⓰).
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-dv">⓰</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Hodnota otisku podpisového certifikátu zakódovaná pomocí base64. Otisk se počítá nad
+                                                certifikátem ve formátu ASN.1/DER. Algoritmus pro výpočet otisku je určen předcházejícím
+                                                elementem <code class="sgmltag-element">DigestMethod</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-is">⓱</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">IssuerSerial</code> a jeho podlementy identifikují certifikační
+                                                autoritu, která vystavila podpisový certifikát.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-dof">⓲</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">DataObjectFormat</code> se pomocí atributu <code class="sgmltag-attribute">ObjectReference</code> odkazuje na element <code class="sgmltag-element">Reference</code> (viz <span id="dsig-ref1"></span>❺), který do podpisu zahrnuje celý dokument ISDOC. Musí obsahovat
+                                                podelement <code class="sgmltag-element">MimeType</code> určující MIME typ odkazovaných dat. V případě formátu
+                                                ISDOC, který používá syntaxi XML, je MIME typ vždy
+                                                <code class="literal">application/xml</code>.
+                                 </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td style="width: 5%; vertical-align: top; text-align: left; ">
+                                 <p><a href="#dsig-xades-ets">⓳</a> 
+                                 </p>
+                              </td>
+                              <td style="vertical-align: top; text-align: left; ">
+                                 <p>Element <code class="sgmltag-element">EncapsulatedTimeStamp</code> obsahuje samotné časové razítko ve formátu
+                                                ASN.1/DER zakódované pomocí base64.
+                                 </p>
+                              </td>
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+               </div><br class="example-break" /></section>
+         </section>
+         <section class="appendix" id="schema">
+            <h2 class="title" style="clear: both">A. Schémata pro jednotlivé typy dokumentů</h2>
+            <section class="section" id="schema-invoice">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">A.1. Schéma pro daňový doklad – <code class="filename"><a class="filename" href="../xsd/isdoc-invoice-6.0.1.xsd" target="_top">isdoc-invoice-6.0.1.xsd</a></code></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="note">
+                  <h3 class="title">Poznámka</h3>
+                  <p>Přehledný grafický diagram schématu je dostupný na adrese <a class="link" href="http://isdoc.cz/6.0.1/doc-cs/isdoc-invoice-6.0.1.html" target="_top">http://isdoc.cz/6.0.1/doc-cs/isdoc-invoice-6.0.1.html</a>.
+                  </p>
+               </div>
+            </section>
+            <section class="section" id="schema-commondocument">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">A.2. Schéma pro neplatební dokument – <code class="filename"><a class="filename" href="../xsd/isdoc-commondocument-6.0.1.xsd" target="_top">isdoc-commondocument-6.0.1.xsd</a></code></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="note">
+                  <h3 class="title">Poznámka</h3>
+                  <p>Přehledný grafický diagram schématu je dostupný na adrese <a class="link" href="http://isdoc.cz/6.0.1/doc-cs/isdoc-commondocument-6.0.1.html" target="_top">http://isdoc.cz/6.0.1/doc-cs/isdoc-commondocument-6.0.1.html</a>.
+                  </p>
+               </div>
+            </section>
+            <section class="section" id="schema-manifest">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">A.3. Schéma pro manifest – <code class="filename"><a class="filename" href="../xsd/isdoc-manifest-6.0.1.xsd" target="_top">isdoc-manifest-6.0.1.xsd</a></code></h3>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </section>
+         <section class="appendix" id="schematron">
+            <h2 class="title" style="clear: both">B. Schéma pro kontrolu vybraných pravidel – <code class="filename"><a class="filename" href="../sch/isdoc-6.0.1.sch" target="_top">isdoc-6.0.1.sch</a></code></h2><pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"&gt;
+   &lt;sch:title&gt;Kontrola vybraných pravidel ISDOC&lt;/sch:title&gt;
+   &lt;sch:ns uri="http://isdoc.cz/namespace/2013" prefix="isdoc"/&gt;
+   &lt;sch:pattern&gt;
+      &lt;sch:title&gt;Vazba na původní doklad&lt;/sch:title&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:DocumentType = (2,3,6)]"&gt;
+            &lt;sch:assert test="isdoc:OriginalDocumentReferences/*"&gt;Pro typ dokladu 2, 3 a 6 musí existovat vazba na původní doklad. Konkrétně tedy pro DocumentType = 2, 3, 6 musí existovat element OriginalDocumentReference a musí byt neprázdný.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+   &lt;/sch:pattern&gt;
+   &lt;sch:pattern&gt;
+      &lt;sch:title&gt;Konzistentní uvádění cizí měny&lt;/sch:title&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmount]"&gt;
+            &lt;sch:assert test="isdoc:LineExtensionAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:LineExtensionAmountTaxInclusive]"&gt;
+            &lt;sch:assert test="isdoc:LineExtensionAmountTaxInclusiveCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DepositAmount]"&gt;
+            &lt;sch:assert test="isdoc:DepositAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableDepositAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxableDepositAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveDepositAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxInclusiveDepositAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxableAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxableAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxInclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxInclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxableAmount]"&gt;
+            &lt;sch:assert test="isdoc:AlreadyClaimedTaxableAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxAmount]"&gt;
+            &lt;sch:assert test="isdoc:AlreadyClaimedTaxAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxInclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:AlreadyClaimedTaxInclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxableAmount]"&gt;
+            &lt;sch:assert test="isdoc:DifferenceTaxableAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxAmount]"&gt;
+            &lt;sch:assert test="isdoc:DifferenceTaxAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxInclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:DifferenceTaxInclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:TaxExclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:TaxExclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:AlreadyClaimedTaxExclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:AlreadyClaimedTaxExclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:DifferenceTaxExclusiveAmount]"&gt;
+            &lt;sch:assert test="isdoc:DifferenceTaxExclusiveAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableRoundingAmount]"&gt;
+            &lt;sch:assert test="isdoc:PayableRoundingAmountCurr"&gt;Doklad vystavený v cizí měně musíobsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PaidDepositsAmount]"&gt;
+            &lt;sch:assert test="isdoc:PaidDepositsAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]//*[isdoc:PayableAmount]"&gt;
+            &lt;sch:assert test="isdoc:PayableAmountCurr"&gt;Doklad vystavený v cizí měně musí obsahovat v cizí měně i všechny finanční elementy. Konkrétně: pokud existuje element ForeignCurrencyCode, pak musí existovat všechny elementy s částkami pro cizí měnu tj. ty končící na Curr.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+   &lt;/sch:pattern&gt;
+   &lt;sch:pattern&gt;
+      &lt;sch:title&gt;Konzistentní uvádění tuzemské měny&lt;/sch:title&gt;
+      &lt;sch:rule context="isdoc:Invoice[not(isdoc:ForeignCurrencyCode)]"&gt;
+            &lt;sch:assert test="isdoc:CurrRate = 1"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="isdoc:RefCurrRate = 1"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+      &lt;sch:rule context="isdoc:Invoice[not(isdoc:ForeignCurrencyCode)]"&gt;
+            &lt;sch:assert test="not(.//isdoc:LineExtensionAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:LineExtensionAmountTaxInclusiveCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:DepositAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:TaxableDepositAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:TaxInclusiveDepositAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:TaxAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+           &lt;sch:assert test="not(.//isdoc:TaxableAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:TaxInclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:AlreadyClaimedTaxableAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:AlreadyClaimedTaxAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:AlreadyClaimedTaxInclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:DifferenceTaxableAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:DifferenceTaxAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:DifferenceTaxInclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:TaxExclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:AlreadyClaimedTaxExclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:DifferenceTaxExclusiveAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:PayableRoundingAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí eistovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:PaidDepositsAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+            &lt;sch:assert test="not(.//isdoc:PayableAmountCurr)"&gt;Doklad vystavený v tuzemské měně nesmí obsahovat žádný element v cizí měně. Pokud neexistuje element ForeignCurrencyCode, pak nesmí existovat žádný element pro cizí měnu, tj. element končící na Curr. Položky s kursem (CurrRate i RefCurrRate) musí být rovny hodnotě 1.&lt;/sch:assert&gt;
+          &lt;/sch:rule&gt;
+   &lt;/sch:pattern&gt;
+   &lt;sch:pattern&gt;
+      &lt;sch:title&gt;Tuzemská a zahraniční měna musí být rozdílná&lt;/sch:title&gt;
+      &lt;sch:rule context="isdoc:Invoice[isdoc:ForeignCurrencyCode]"&gt;
+            &lt;sch:assert test="isdoc:ForeignCurrencyCode != isdoc:LocalCurrencyCode"&gt;U dokladu v zahraniční měně nesmí být měna lokální a zahraniční shodné. Konkrétně hodnota povinné položky LocalCurrencyCode se nesmí rovnat hodnotě nepovinné položky ForeignCurrencyCode.&lt;/sch:assert&gt;            
+          &lt;/sch:rule&gt;
+   &lt;/sch:pattern&gt;
+&lt;/sch:schema</pre></section>
+         <section xml:lang="cs" class="appendix" id="chagelog">
+            <h2 class="title" style="clear: both">C. Změny oproti předchozím verzím</h2>
+            <section class="section" id="d5e513">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">C.1. Změny oproti verzi 5.3.1 z 30.12.2011</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" style="list-style-type: disc; ">
+                     <li class="listitem">
+                        <p>Změněn jmenný prostor na <code class="uri">http://isdoc.cz/namespace/2013</code></p>
+                     </li>
+                     <li class="listitem">
+                        <p>Odkazy na objednávky (<code class="sgmltag-element">OrderReference</code>), dodací listy (<code class="sgmltag-element">DeliveryNoteReference</code>) a
+                           původní doklady (<code class="sgmltag-element">OriginalDocumentReference</code>) se uvádějí jen globálně pro celou fakturu. U řádky může již být jen odkaz, který pomocí atributu ref směřuje na existující
+                           globální
+                           odkaz identifikovaný pomocí atributu id. Nad hodnotami v atributech id a ref schéma
+                           kontroluje referenční integritu.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Elementy <code class="sgmltag-element">VATApplicable</code> a <code class="sgmltag-element">ElectronicPossibilityAgreementReference</code> jsou ve schématu povinné
+                           (povinné jsou již od verze 5.3, povinnost však nebyla formálně popsána ve schématu).
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Upraveno pořadí podelementů uvnitř elementu <code class="sgmltag-element">TaxSubTotal</code> tak, aby bylo konzistentní.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Element <code class="sgmltag-element">OriginalDocumentReference</code> musí být vždy obalen v <code class="sgmltag-element">OriginalDocumentReferences</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Přidán element <code class="sgmltag-element">ClientBankAccount</code> pro velké výstavce B2C faktur.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Přidány elementy <code class="sgmltag-element">SubDocumentType</code> a  <code class="sgmltag-element">SubDocumentTypeOrigin</code> pro jemnější klasifikaci dokumentů.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Přidány elementy <code class="sgmltag-element">EgovFlag</code>, <code class="sgmltag-element">FileReference</code>, <code class="sgmltag-element">ReferenceNumber</code>, <code class="sgmltag-element">ISDS_ID</code>,
+                           <code class="sgmltag-element">EgovClassifiers</code>, <code class="sgmltag-element">EgovClassifier</code>, <code class="sgmltag-element">ContractReferences</code>, <code class="sgmltag-element">ContractReference</code>,
+                           <code class="sgmltag-element">LastValidDate</code>, <code class="sgmltag-element">LastValidDateUnbounded</code>, <code class="sgmltag-element">ExternalOrderIssueDate</code>, <code class="sgmltag-element">ParagraphID</code>,
+                           <code class="sgmltag-element">SealSeriesID</code>.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>K elementu <code class="sgmltag-element">Payment</code> byl přidán nový atribut partialPayment, který může být použit k zakázání částečných plateb.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Pořadí elementů uvnitř elementu <code class="sgmltag-element">Invoice</code> bylo upraveno.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Element <code class="sgmltag-element">PartyTaxScheme</code> se může opakovat a u subjektu lze zadat více jeho identifikátorů (např. zároveň DIČ a IČ DPH pro slovenské společnosti).
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Do archivu (<code class="filename">.isdocx</code>) byla přidána povinnost používat
+                           manifest. Manifest je soubor určující, který soubor ISDOC z mnoha v archivu
+                           existujících je hlavní. Všechny ostatní jsou pak jen v pozici přílohy.
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Přidán nový typ dokumentu neplatební dokument (element <code class="sgmltag-element">CommonDocument</code>).
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </section>
+         </section>
+         <section class="appendix" id="d5e572">
+            <h2 class="title" style="clear: both">D. Možné změny pro další verze</h2>
+            <p>Následující seznam obsahuje navrhované změny a rozšíření pro některou z dalších verzí
+               ISDOC.
+            </p>
+            <div class="itemizedlist">
+               <ul class="itemizedlist" style="list-style-type: disc; ">
+                  <li class="listitem">
+                     <p>Další verze ISDOC bude podporovat další typy dokumentů objednávka a potvrzení objednávky.</p>
+                  </li>
+                  <li class="listitem">
+                     <p>Zvažujeme přidání nového typu dokumentu, který bude sloužit jako kontejner pro uložení
+                        a přenos více dokumentů najednou, například při dávkovém zpracování.
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </section>
+         <div class="bibliography" id="d5e580">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title">Reference</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="bibliomixed" id="bib.appnote">
+               <p class="bibliomixed">[<abbr class="abbrev">APPNOTE</abbr>] <span class="title">APPNOTE.TXT – .ZIP File Format Specification.</span> September 2007. PKWARE Inc. Dostupné na URL: <span class="bibliomisc"><a class="link" href="http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.2.TXT" target="_top">http://www.pkware.com/documents/APPNOTE/APPNOTE-6.3.2.TXT</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.rfc4051">
+               <p class="bibliomixed">[<abbr class="abbrev">RFC4051</abbr>] <span class="title">Additional XML Security Uniform
+                     Resource Identifiers (URIs).</span> April 2005. IETF. Dostupné na URL: <span class="bibliomisc"><a class="link" href="http://www.ietf.org/rfc/rfc4051.txt" target="_top">http://www.ietf.org/rfc/rfc4051.txt</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.xml">
+               <p class="bibliomixed">[<abbr class="abbrev">XML</abbr>] <span class="title">Extensible Markup Language (XML) 1.0
+                     (Fifth Edition).</span> W3C Recommendation. 26 November 2008. W3C. Dostupné na URL:
+                  <span class="bibliomisc"><a class="link" href="http://www.w3.org/TR/REC-xml/" target="_top">http://www.w3.org/TR/REC-xml/</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.xades">
+               <p class="bibliomixed">[<abbr class="abbrev">XAdES</abbr>] <span class="title">ETSI TS 101 903 V1.4.1: XML
+                     Advanced Electronic Signatures (XAdES)</span> Technical Specification. June 2009. ETSI.
+                  Dostupné na URL: <span class="bibliomisc"><a class="link" href="http://uri.etsi.org/01903/v1.4.1/ts_101903v010401p.pdf" target="_top">http://uri.etsi.org/01903/v1.4.1/ts_101903v010401p.pdf</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.2011-130-eu">
+               <p class="bibliomixed">[<abbr class="abbrev">2011/130/EU</abbr>] 
+                  <span class="title">COMMISSION DECISION of 25 February 2011 establishing minimum requirements for the
+                     cross-border processing of documents signed electronically by competent authorities under
+                     Directive 2006/123/EC of the European Parliament and of the Council on services in the
+                     internal market</span>. Dostupné na URL:
+                  <span class="bibliomisc"><a class="link" href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2011:053:0066:0072:EN:PDF" target="_top">http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2011:053:0066:0072:EN:PDF</a></span><a href="#ftn.d5e607" class="footnote"><sup class="footnote" id="d5e607">[6]</sup></a></p>
+            </div>
+            <div class="bibliomixed" id="bib.cba29">
+               <p class="bibliomixed">[<abbr class="abbrev">ČBA-STD-29</abbr>] <span class="title">Standard elektronické fakturace – Popis rozhraní pro zasílání
+                     e-faktur a e-dokumentů koncovým spotřebitelům do aplikací elektronického bankovnictví</span>.
+                  2014. Česká bankovní asociace.
+                  
+               </p>
+            </div>
+            <div class="bibliomixed" id="bib.rfc1951">
+               <p class="bibliomixed">[<abbr class="abbrev">RFC1951</abbr>] <span class="title">DEFLATE Compressed Data Format Specification version 1.3</span>
+                  May 1996. IETF. Dostupné na URL:
+                  <span class="bibliomisc"><a class="link" href="http://www.ietf.org/rfc/rfc1951.txt" target="_top">http://www.ietf.org/rfc/rfc1951.txt</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.rfc3161">
+               <p class="bibliomixed">[<abbr class="abbrev">RFC3161</abbr>] <span class="title">Internet X.509 Public Key
+                     Infrastructure Time-Stamp Protocol (TSP)</span> August 2001. IETF. Dostupné na URL:
+                  <span class="bibliomisc"><a class="link" href="http://www.ietf.org/rfc/rfc3161.txt" target="_top">http://www.ietf.org/rfc/rfc3161.txt</a></span></p>
+            </div>
+            <div class="bibliomixed" id="bib.xmldsig-core">
+               <p class="bibliomixed">[<abbr class="abbrev">XMLDSig-Core</abbr>] <span class="title">XML Signature Syntax
+                     and Processing (Second Edition).</span> W3C Recommendation. 10 June 2008. W3C. Dostupné na
+                  URL: <span class="bibliomisc"><a class="link" href="http://www.w3.org/TR/xmldsig-core/" target="_top">http://www.w3.org/TR/xmldsig-core/</a></span></p>
+            </div>
+         </div>
+         <div class="footnotes"><br /><hr class="footnote-hr" />
+            <div id="ftn.d5e308" class="footnote">
+               <p><a href="#d5e308" class="para"><sup class="para">[1] </sup></a>Například nesmí začínat číslem, nesmí obsahovat mezery atd.
+               </p>
+            </div>
+            <div id="ftn.d5e365" class="footnote">
+               <p><a href="#d5e365" class="para"><sup class="para">[2] </sup></a>Povinnost zahrnout podpisový certifikát do podpisu definuje forma XAdES-BES.
+                  Časové razítko ve formě XAdES-T musí splňovat i všechny požadavky na nižší formu
+                  XAdES-BES (resp. XAdES-EPES).
+               </p>
+            </div>
+            <div id="ftn.d5e370" class="footnote">
+               <p><a href="#d5e370" class="para"><sup class="para">[3] </sup></a>Otisk se přitom počítá z binární reprezentace hodnoty digitálního podpisu nikoli z textového obsahu elementu, který binární
+                  data obsahuje až po zakódování metodou
+                  base64.
+               </p>
+            </div>
+            <div id="ftn.d5e372" class="footnote">
+               <p><a href="#d5e372" class="para"><sup class="para">[4] </sup></a>V současné době většina autorit časového razítka v ČR podporuje pouze algoritmus
+                  SHA-256.
+               </p>
+            </div>
+            <div id="ftn.d5e380" class="footnote">
+               <p><a href="#d5e380" class="para"><sup class="para">[5] </sup></a>Položka <code class="literal">timeStampToken</code> je vyžadována, protože ve své části
+                  <code class="literal">messageImprint</code> obsahuje položku <code class="literal">hashAlgorithm</code>
+                  identifikující algoritmus použitý pro výpočet otisku. Znalost tohoto algoritmu je
+                  důležitá při následném ověřování časového razítka.
+               </p>
+            </div>
+            <div id="ftn.d5e607" class="footnote">
+               <p><a href="#d5e607" class="para"><sup class="para">[6] </sup></a>Kvůli chybám v českém překladu doporučujeme vycházet z anglické verze rozhodnutí
+                  komise.
+               </p>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>
